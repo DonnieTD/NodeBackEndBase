@@ -20,7 +20,7 @@ async function CheckPassword(Password,UserObjectPassword,UserObj){
 
     if(passwordCheck == false) throw "Invalid Password"
     
-    return UserObj
+    return true
 }
  
 async function MakeJWT(payload,secret,encryptionObj){

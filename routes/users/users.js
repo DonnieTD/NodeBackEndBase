@@ -3,12 +3,10 @@ var router = express.Router();
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-// helpers
 import {CheckIfUserExists,CheckPassword,MakeJWT} from './HelperFunctions/loginHelperFunctions';
 import {Register} from './HelperFunctions/registerHelperFunctions'
 import {errorHandler} from './HelperFunctions/errorHelperFunctions';
 
-// define the about route
 router.post('/register', async function (req, res) {
   try {
      res.send(await Register('Users',req.body.UserName,req.body.Password));
@@ -17,14 +15,16 @@ router.post('/register', async function (req, res) {
   }
 })
 
+
 router.post('/login', async function (req, res) {
   try{
-    let [ UserObj,JWTPayload,JWT] = [
-        await CheckIfUserExists("Users",req.body.UserName),
-        await CheckPassword(req.body.Password,UserObj[0].Password,UserObj[0]),
-        await MakeJWT(JWTPayload,process.env.SECRET_KEY,{ algorithm: 'HS256' })
-    ];
-    
+    let UserObj = await CheckIfUserExists("Users",req.body.UserName);
+    let JWT;
+
+    await CheckPassword(req.body.Password,UserObj[0].Password,UserObj[0]);
+
+    JWT = await MakeJWT(JWTPayload,process.env.SECRET_KEY,{ algorithm: 'HS256' });
+
     res.cookie('token', JWT, {
       expires: new Date(Date.now() + "30m"),
       secure: false, // set to true on production
@@ -36,7 +36,7 @@ router.post('/login', async function (req, res) {
   }
 })
 
-// WILL HAVE TO BECOME MIDDLEWARE
+// WILL HAVE TO BECOME MIDDLEWARE ( apparently not really )
 router.post('/verify', async function (req, res) {
   if(!req.cookies.token) res.send(false);
 

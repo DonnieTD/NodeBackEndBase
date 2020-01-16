@@ -5,8 +5,6 @@ import { DBINSTANCE } from '../../../lib/mongoConnect';
 async function Register(UsersCollection,UserName,Password) {
     const col = DBINSTANCE.collection(UsersCollection);
 
-    col.createIndex({ "UserName": 1 }, { unique: true });
-
     try{
         const response = await col.insertOne({UserName,Password: bcrypt.hashSync(Password)});
         
