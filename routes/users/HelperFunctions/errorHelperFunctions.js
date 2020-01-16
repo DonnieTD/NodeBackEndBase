@@ -1,6 +1,5 @@
 function errorHandler(e){
     switch(e) {
-        // Handled errors 
         case 'User Exists':
             return e;
             break;   
