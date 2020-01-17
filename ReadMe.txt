@@ -10,7 +10,7 @@ Here's how you get up and running.
 
 4) Add your Database name,username, and password
 
-5) Add the domain of the client and the api eg. www.domainone.com,www.domaintwo.com ( is this redudant ? )
+5) Add the domain of the client and the api eg. www.domainone.com,www.domaintwo.com ( Is this redudant ? )
 
 6) Create mongodb DB and Users Col
     In atlas:
