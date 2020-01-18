@@ -2,7 +2,7 @@ Welcome to my JS rest api base:
 
 Here's how you get up and running.
 
-1) Open up .env
+1) Rename .envSample to .env( The gitignore is set up)
 
 2) Add your secret key (add recomendation for places to generate or how to generate one)
 
