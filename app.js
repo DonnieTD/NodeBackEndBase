@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
-connectToMongo(`mongodb+srv://${process.env.DB_UNAME}${process.env.DB_PASS}@cluster0-t71ol.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+connectToMongo(`mongodb+srv://${process.env.DB_UNAME}:${process.env.DB_PASS}@cluster0-t71ol.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
                 process.env.DB_NAME,
                'Connection Succesful(MONGO)'
 );
