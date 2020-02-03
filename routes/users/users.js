@@ -48,7 +48,6 @@ router.post('/verify', async function (req, res) {
     
     res.send(decrypt);
   }catch(e){
-    console.log('here')
     res.send(false)
   }
 })
