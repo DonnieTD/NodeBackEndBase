@@ -1,4 +1,5 @@
 function errorHandler(e){
+    console.log("Error Handler: "+e)
     switch(e) {
         case 'User Exists':
             return e;
