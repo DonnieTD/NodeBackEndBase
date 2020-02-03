@@ -6,8 +6,13 @@ import {connectToMongo} from './lib/mongoConnect';
 require('dotenv').config();
 
 const app = express();
+<<<<<<< HEAD
   console.log(process.env)
 connectToMongo(`mongodb+srv://${process.env.DB_UNAME}${process.env.DB_PASS}@cluster0-t71ol.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+=======
+
+connectToMongo(`mongodb+srv://${process.env.DB_UNAME}:${process.env.DB_PASS}@cluster0-t71ol.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+>>>>>>> fef9de29d4776fca8b3ca72370fc17f766f5758d
                 process.env.DB_NAME,
                'Connection Succesful(MONGO)'
 );
